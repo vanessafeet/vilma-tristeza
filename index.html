@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Toca a la Vilma</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 50px 20px;
+    }
+    button {
+      background-color: #f44336;
+      color: white;
+      padding: 15px 25px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #d32f2f;
+    }
+    #mensaje {
+      margin-top: 30px;
+      font-size: 1.3em;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    #mensaje.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Toca a la Vilma</h1>
+  <button onclick="mostrarMensaje()">Tócala</button>
+
+  <div id="mensaje"></div>
+
+  <script>
+    function mostrarMensaje() {
+      const mensaje = document.getElementById('mensaje');
+      mensaje.innerHTML = "Vilma es sorda de Chinandega, sola en algún lado de su casa, extrañando a su ex novio porque la dejó sola hace una semana. Ahora busca ayuda de Michel y sus amigas para clamarle.";
+      mensaje.classList.add("visible");
+    }
+  </script>
+
+</body>
+</html>
