@@ -1,56 +1,123 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Toca a la Vilma</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ayuda a Vilma</title>
   <style>
     body {
-      background-color: #111;
+      background-image: url('https://i.ytimg.com/vi/dF6GxqaQtK4/maxresdefault.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       color: #fff;
       font-family: sans-serif;
       text-align: center;
-      padding: 50px 20px;
+      padding: 40px 20px;
+      min-height: 100vh;
     }
+
+    h1 {
+      margin-bottom: 30px;
+      color: #ffd1dc;
+      text-shadow: 1px 1px 4px #000;
+    }
+
+    .botones {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
     button {
-      background-color: #f44336;
-      color: white;
-      padding: 15px 25px;
-      font-size: 1.2em;
+      padding: 15px;
       border: none;
       border-radius: 8px;
+      font-size: 1.1em;
+      font-weight: bold;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: transform 0.2s;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
     }
+
     button:hover {
-      background-color: #d32f2f;
+      transform: scale(1.05);
     }
+
     #mensaje {
       margin-top: 30px;
-      font-size: 1.3em;
+      font-size: 1.2em;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
-      line-height: 1.5;
-      opacity: 0;
-      transition: opacity 0.5s ease;
+      line-height: 1.6;
+      background: rgba(0,0,0,0.7);
+      padding: 20px;
+      border-radius: 8px;
+      display: none;
     }
+
     #mensaje.visible {
-      opacity: 1;
+      display: block;
+    }
+
+    .vilma {
+      background-color: #e91e63;
+      color: white;
+    }
+
+    .michel {
+      background-color: #9c27b0;
+      color: white;
+    }
+
+    .sayda {
+      background-color: #03a9f4;
+      color: white;
+    }
+
+    .eglenia {
+      background-color: #4caf50;
+      color: white;
     }
   </style>
 </head>
 <body>
 
-  <h1>Toca a la Vilma</h1>
-  <button onclick="mostrarMensaje()">Tócala</button>
+  <h1>Ayuda a Vilma</h1>
+
+  <div class="botones">
+    <button class="vilma" onclick="mostrarMensaje('vilma')">Vilma</button>
+    <button class="michel" onclick="mostrarMensaje('michel')">Michel</button>
+    <button class="sayda" onclick="mostrarMensaje('sayda')">Sayda</button>
+    <button class="eglenia" onclick="mostrarMensaje('eglenia')">Eglenia</button>
+  </div>
 
   <div id="mensaje"></div>
 
   <script>
-    function mostrarMensaje() {
+    function mostrarMensaje(quien) {
       const mensaje = document.getElementById('mensaje');
-      mensaje.innerHTML = "Vilma es sorda de Chinandega, sola en algún lado de su casa, extrañando a su ex novio porque la dejó sola hace una semana. Ahora busca ayuda de Michel y sus amigas para clamarle.";
+      let texto = "";
+
+      switch (quien) {
+        case 'vilma':
+          texto = "Vilma necesita tu ayuda para clamarle porque ella sigue extrañando a su ex por la distancia. 💔";
+          break;
+        case 'michel':
+          texto = "Michel es un fantasma que no hace nada para poder ayudarla a la Vilma en su momento difícil. 👻";
+          break;
+        case 'sayda':
+          texto = "Sayda dice: ¡Llévala a un restaurante a comer tacos con sus amigas! 🌮👯‍♀️";
+          break;
+        case 'eglenia':
+          texto = "Eglenia dice: Vamos a hacer una llamada video conmigo 📞📹";
+          break;
+      }
+
+      mensaje.innerHTML = texto;
       mensaje.classList.add("visible");
     }
   </script>
